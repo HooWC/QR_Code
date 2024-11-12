@@ -6,20 +6,22 @@ const QRCodeGenerator = () => {
     const [url, setUrl] = useState('');
     const [qrCodeUrl, setQrCodeUrl] = useState('');
     const [error, setError] = useState('');
+    const [fullUrl, setFullUrl] = useState('');
 
     const handleInputChange = (event) => {
         setUrl(event.target.value);
     };
 
     const generateQRCode = async () => {
-        const fullUrl = `https://${url}.com`;
+        const newFullUrl = `https://${url}.com`;
+        setFullUrl(newFullUrl);  // 保存生成的 URL
 
         try {
             setError('');
             setQrCodeUrl('');
 
             // 使用 GoQR.me API 来生成二维码
-            const response = await axios.get(`https://api.qrserver.com/v1/create-qr-code/?data=${encodeURIComponent(fullUrl)}&size=150x150`);
+            const response = await axios.get(`https://api.qrserver.com/v1/create-qr-code/?data=${encodeURIComponent(newFullUrl)}&size=150x150`);
 
             // 判断返回的 URL 是否有效
             if (response.config.url) {
@@ -48,6 +50,10 @@ const QRCodeGenerator = () => {
                 <div>
                     <h2>Your QR Code:</h2>
                     <img src={qrCodeUrl} alt="QR Code" />
+                    <div style={{ marginTop: '20px' }}>
+                        <p><strong>Generated URL:</strong></p>
+                        <p>{fullUrl}</p>
+                    </div>
                 </div>
             )}
         </div>
