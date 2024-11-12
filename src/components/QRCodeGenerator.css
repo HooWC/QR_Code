@@ -1,0 +1,84 @@
+/* 基本样式 */
+body {
+    font-family: 'Arial', sans-serif;
+    /* background-color: #f4f7fc; */
+    background-image: url('../../public/images/backgroundPIC.png');
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* 容器 */
+.qr-code-generator {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+}
+
+/* 标题 */
+.qr-code-generator h1 {
+    font-size: 2rem;
+    color: #4A90E2;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* 输入框 */
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    outline: none;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus {
+    border-color: #5b9bd5;
+}
+
+/* 按钮 */
+button {
+    padding: 12px 24px;
+    background-color: #5b9bd5;
+    color: white;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #4a8db0;
+}
+
+/* 错误信息 */
+p {
+    color: red;
+    font-size: 1rem;
+    margin: 10px 0;
+}
+
+/* 二维码展示 */
+img {
+    margin-top: 20px;
+    max-width: 100%;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+img:hover {
+    transform: scale(1.1);
+}
